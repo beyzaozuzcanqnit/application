@@ -1,1 +1,31 @@
-{}
+{
+    "baseUrl": "https://demoauthor.magnolia-cms.com",
+    "retries" : 2,
+    "env": {
+      "loginPage_url": "/travel",
+      "pageLoadTimeInGeneral": 3000
+    },
+    "viewportWidth": 1500,
+    "viewportHeight": 800,
+    "testFiles": "**/*.{feature,features}",
+    "ignoreTestFiles": "*.js",
+    "reporter": "mochawesome",
+    "reporterOptions": {
+      "charts": true,
+      "json": true,
+      "html": true,
+      "reportFilename": "testReport",
+      "overwrite": true
+    },
+    "videoCompression": false,
+    "videosFolder": "cypress/videos",
+    "video": true,
+    "videoUploadOnPasses": false,
+    "screenshotOnRunFailure": true,
+    "screenshotsFolder": "cypress/screenshots",
+    "trashAssetsBeforeRuns": true,
+    "defaultCommandTimeout": 16000,
+    "requestTimeout": 10000,
+    "slowTestThreshold": 15000
+  }
+  
