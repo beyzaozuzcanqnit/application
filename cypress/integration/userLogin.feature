@@ -1,28 +1,24 @@
-Feature: User Login page
+Feature: UserLoginPage test
     I'm validating the User login page with various scenarios.
 
     Background:
-        Then I should be in the magnolia "loginPage_url" page
+        Given I should be in the magnolia loginpage
 
-    Scenario Outline: Validate login functionality of application using valid credentials
-
-        Then Enter login email "<userName>" and password "<password>"
-        And I click on "logIn" at element "form[action method=post] button", indexed at "0"
-        And Do the XHR success validations
-        Then I should be in the magnolia "magnoliaHomePage" page
-        And I Logout from application
+    Scenario Outline: Validate login functionality of user with valid credentials
+        Then Enter login userName "<userName>" and password "<password>"
+        And click on login button at element "button" indexed at "0" with the good network request validations
+        Then I should be in the magnoliaHomePage
 
         Examples:
             | userName  | password  |
             | superuser | superuser |
 
-    Scenario Outline: Validate login functionality using wrong credentials
 
-        Then Enter login email "<userName>" and password "<password>"
-        And I click on "logIn" at element "form[action method=post] button", indexed at "0"
-        And Do the XHR failure validations
-        Then I should see warning message "Error during login. Please try again." at element "#validation-bubble"
-        And I should be in the magnolia "magnoliaLoginPage" page
+    Scenario Outline: Validate login functionality of user with  wrong credentials
+
+         Then Enter login userName "<userName>" and password "<password>"
+         And click on login button at element "button" indexed at "0" with the bad network request validations
+         Then I should see warning message "loginErrorMessage" at element "#validation-bubble"
 
         Examples:
             | userName     | password     |

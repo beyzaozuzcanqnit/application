@@ -1,8 +1,6 @@
 {
-    "baseUrl": "https://demoauthor.magnolia-cms.com",
-    "retries" : 2,
+    "baseUrl": "https://demoauthor.magnolia-cms.com/travel",
     "env": {
-      "loginPage_url": "/travel",
       "pageLoadTimeInGeneral": 3000
     },
     "viewportWidth": 1500,

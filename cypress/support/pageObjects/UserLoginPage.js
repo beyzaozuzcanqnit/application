@@ -3,8 +3,6 @@ class UserLoginPage {
       this.userName = typeof userName !== 'undefined' ? userName : '';
       this.loginPassowrd = typeof userLoginPassword !== 'undefined' ? userLoginPassword : '';
   
-      cy.visit(Cypress.env('loginPage_url'));
-  
       // Typing in login userName
       if (this.userName.length === 0) {
         cy.get('#username').invoke('val', '');
