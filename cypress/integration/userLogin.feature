@@ -16,8 +16,8 @@ Feature: UserLoginPage test
 
     Scenario Outline: Validate login functionality of user with  wrong credentials
         Then I enter login userName "<userName>" and password "<password>"
-         And I click on login button at element "button" indexed at "0" with the "failure" network request validations
-         Then I should see warning message "loginErrorMessage" at element "#validation-bubble"
+        And I click on login button at element "button" indexed at "0" with the "failure" network request validations
+        Then I should see warning message "loginErrorMessage" at element "#validation-bubble"
 
         Examples:
             | userName     | password     |
