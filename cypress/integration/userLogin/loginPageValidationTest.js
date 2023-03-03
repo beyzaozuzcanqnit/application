@@ -12,7 +12,7 @@ import {
 const loginPageObject = new UserLoginPage();
 
 Then(
-  /^Enter login userName \"([^\"]*)\" and password \"([^\"]*)\"$/,
+  /^I enter login userName \"([^\"]*)\" and password \"([^\"]*)\"$/,
   function (username, password) {
     loginPageObject.login(username, password);
   }
@@ -32,57 +32,41 @@ And(
   }
 );
 
+And(/^I should be in the magnoliaHomePage$/, function () {
+  cy.get(
+    ".carousel.slide .carousel-inner .item.active .carousel-caption h1"
+  ).contains(constants.texts.homepageText);
+});
+
 And(
-  /^click on login button at element \"([^\"]*)\" indexed at \"([^\"]*)\" with the good network request validations$/,
-  function (element, index) {
+  /^I click on login button at element \"([^\"]*)\" indexed at \"([^\"]*)\" with the \"([^\"]*)\" network request validations$/,
+  function (elmenet, index, status) {
     const loginUrl = `${Cypress.config("baseUrl")}`;
 
-    // listen to the network requests
-    cy.intercept({
-      method: "GET",
-      url: loginUrl,
-    }).as("userLogin");
+    switch (status) {
+      case "success":
+        cy.intercept({ method: "GET", url: loginUrl }).as("userLogin");
+        // Click on the login button
+        cy.get(element).eq(index).click();
+        cy.wait("@userLogin").then(({ response }) => {
+          const { statusCode } = response;
+          const pattern = /[2][0-9][0-9]/;
+          const matching = statusCode.toString().match(pattern);
+          expect(statusCode.toString()).to.eq(matching[0]);
+        });
+        break;
 
-    // Click on the login button
-    cy.get(element).eq(index).click();
-
-    cy.wait("@userLogin").then(({ response }) => {
-      const { statusCode } = response;
-      const pattern = /[2][0-9][0-9]/;
-      const matching = statusCode.toString().match(pattern);
-      expect(statusCode.toString()).to.eq(matching[0]);
-    });
-  }
-);
-
-And(
-  /^click on login button at element \"([^\"]*)\" indexed at \"([^\"]*)\" with the bad network request validations$/,
-  function (element, index) {
-    const loginUrl = `${Cypress.config("baseUrl")}`;
-
-    // listen to the network requests
-    cy.intercept({
-      method: "POST",
-      url: loginUrl,
-    }).as("userLogin");
-
-    // Click on the login button
-    cy.get(element).eq(index).click();
-
-    cy.wait("@userLogin").then(({ response }) => {
-      const { statusCode } = response;
-      const pattern = /[4][0-9][0-9]/;
-      const matching = statusCode.toString().match(pattern);
-      expect(statusCode.toString()).to.eq(matching[0]);
-    });
-  }
-);
-
-And(
-  /^I should be in the magnoliaHomePage$/,
-  function () {
-    cy.get(
-      ".carousel.slide .carousel-inner .item.active .carousel-caption h1"
-    ).contains(constants.texts.homepageText);
+      case "failure":
+        cy.intercept({ method: "POST", url: loginUrl }).as("userLogin");
+        // Click on the login button
+        cy.get(element).eq(index).click();
+        cy.wait("@userLogin").then(({ response }) => {
+          const { statusCode } = response;
+          const pattern = /[4][0-9][0-9]/;
+          const matching = statusCode.toString().match(pattern);
+          expect(statusCode.toString()).to.eq(matching[0]);
+        });
+        break;
+    }
   }
 );
