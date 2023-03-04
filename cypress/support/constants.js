@@ -4,7 +4,7 @@ export const texts = {
   storiespageText: "Stories",
   aboutpageText: "About Magnolia Travels",
   contactpageText: "Contact",
-  memberspageText: "Members"
+  memberspageText: "Members",
 };
 
 export const userCredentials = {
@@ -50,4 +50,20 @@ export const navigationDropdownElements = {
   aboutUrl: "about.html",
   contactUrl: "contact.html",
   membersUrl: "members.html",
+};
+
+export const GermanLanguageContent = {
+  logout: "Ausloggen",
+  about: "Über uns",
+  contact: "Kontakt",
+  members: "Mitglieder",
+  homepageText: "Radfahren in den Dolomiten",
+};
+
+export const EnglishLanguageContent = {
+  logout: "Log out",
+  about: "About",
+  contact: "Contact",
+  members: "Members",
+  homepageText: "Dolomites on Bike",
 };

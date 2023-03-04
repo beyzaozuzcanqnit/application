@@ -1,7 +1,8 @@
 {
   "baseUrl": "https://demoauthor.magnolia-cms.com/travel",
   "env": {
-    "pageLoadTimeInGeneral": 3000
+    "pageLoadTimeInGeneral": 3000,
+    "germalLanguageUrl": "/de"
   },
   "viewportWidth": 1500,
   "viewportHeight": 800,
