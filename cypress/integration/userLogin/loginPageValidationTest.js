@@ -36,11 +36,15 @@ And(/^I should be in the magnoliaHomePage$/, function () {
   cy.get(
     ".carousel.slide .carousel-inner .item.active .carousel-caption h1"
   ).contains(constants.texts.homepageText);
+  cy.url().should(
+    "include",
+    constants.navigationDropdownElements.homepageUrl
+  );
 });
 
 And(
   /^I click on login button at element \"([^\"]*)\" indexed at \"([^\"]*)\" with the \"([^\"]*)\" network request validations$/,
-  function (elmenet, index, status) {
+  function (element, index, status) {
     const loginUrl = `${Cypress.config("baseUrl")}`;
 
     switch (status) {
