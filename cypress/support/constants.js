@@ -1,6 +1,10 @@
 export const texts = {
   loginErrorMessage: "Error during login. Please try again.",
   homepageText: "Dolomites on Bike",
+  storiespageText: "Stories",
+  aboutpageText: "About Magnolia Travels",
+  contactpageText: "Contact",
+  memberspageText: "Members"
 };
 
 export const userCredentials = {

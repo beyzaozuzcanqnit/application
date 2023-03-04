@@ -112,21 +112,25 @@ And(/^I validate user landing webpage of \"([^\"]*)\" index$/, function (item) {
         "include",
         constants.navigationDropdownElements.storiesUrl
       );
+      cy.get(".stories-header h1").contains(constants.texts.storiespageText);
       break;
     case "about":
       cy.url().should("include", constants.navigationDropdownElements.aboutUrl);
+      cy.get(".jumbotron h2").contains(constants.texts.aboutpageText);
       break;
     case "contact":
       cy.url().should(
         "include",
         constants.navigationDropdownElements.contactUrl
       );
+      cy.get(".jumbotron h2").contains(constants.texts.contactpageText);
       break;
     case "members":
       cy.url().should(
         "include",
         constants.navigationDropdownElements.membersUrl
       );
+      cy.get(".jumbotron h2").contains(constants.texts.memberspageText);
       break;
     default:
       cy.log("The selected navigation button is not available");
