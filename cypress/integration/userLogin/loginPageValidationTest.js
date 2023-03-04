@@ -36,10 +36,7 @@ And(/^I should be in the magnoliaHomePage$/, function () {
   cy.get(
     ".carousel.slide .carousel-inner .item.active .carousel-caption h1"
   ).contains(constants.texts.homepageText);
-  cy.url().should(
-    "include",
-    constants.navigationDropdownElements.homepageUrl
-  );
+  cy.url().should("include", constants.navigationDropdownElements.homepageUrl);
 });
 
 And(
