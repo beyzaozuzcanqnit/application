@@ -41,6 +41,7 @@ export const navigationDropdownElements = {
     "destination~asia~.html",
     "destination~polar~.html",
   ],
+  homepageUrl: "/travel",
   storiesUrl: "stories.html",
   aboutUrl: "about.html",
   contactUrl: "contact.html",
