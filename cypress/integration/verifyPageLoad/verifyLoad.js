@@ -4,10 +4,7 @@ import * as constants from "../../support/constants";
 
 import {
   Then,
-  And,
-  When,
-  Given,
-  But,
+  And
 } from "cypress-cucumber-preprocessor/steps";
 const loginPageObject = new UserLoginPage();
 
@@ -31,8 +28,6 @@ And(/^I should be in the magnoliaHomePage$/, function () {
   cy.get(
     ".carousel.slide .carousel-inner .item.active .carousel-caption h1"
   ).contains(constants.texts.homepageText);
-
   cy.url().should("include", constants.navigationDropdownElements.homepageUrl);
-
   cy.get("body").should("be.visible");
 });

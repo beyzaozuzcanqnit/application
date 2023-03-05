@@ -2,7 +2,8 @@
   "baseUrl": "https://demoauthor.magnolia-cms.com/travel",
   "env": {
     "pageLoadTimeInGeneral": 3000,
-    "germalLanguageUrl": "/de"
+    "germalLanguageUrl": "/de",
+    "carrersUrl": "/about/careers.html"
   },
   "viewportWidth": 1500,
   "viewportHeight": 800,

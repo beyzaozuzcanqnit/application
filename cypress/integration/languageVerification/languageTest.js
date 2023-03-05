@@ -1,10 +1,6 @@
 /// <reference types="Cypress" />
 import {
   Then,
-  And,
-  When,
-  Given,
-  But,
 } from "cypress-cucumber-preprocessor/steps";
 import * as constants from "../../support/constants";
 
@@ -13,7 +9,6 @@ Then(
   function (element, index) {
     const germanLanguageUrl = `${Cypress.config("baseUrl") + Cypress.env("germalLanguageUrl")}`;
     cy.intercept({ method: "GET", url: germanLanguageUrl }).as("userLanguageChange");
-    // Click on the login button
     cy.get(element).eq(index).click();
     cy.wait("@userLanguageChange").then(({ response }) => {
       const { statusCode } = response;
