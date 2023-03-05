@@ -1,10 +1,7 @@
 /// <reference types="Cypress" />
 import {
   Then,
-  And,
-  But,
-  Given,
-  When,
+  And
 } from "cypress-cucumber-preprocessor/steps";
 import * as constants from "../../support/constants";
 
