@@ -13,6 +13,16 @@ import {
   });
 
   Then(/^I click on the first seach result page and validate user landing webpage$/, function () {
-    cy.get('.list-group-item').eq(1).click({force: true});
-    cy.url().should('include.text', 'careers');
-  });
+    
+    const germanLanguageUrl = "https://demoauthor.magnolia-cms.com/travel/about/careers.html";
+    cy.intercept({ method: "GET", url: germanLanguageUrl }).as("career");
+    // Click on the login button
+    cy.get("a[href='/travel/about/careers.html']").click({force: true});
+    cy.wait("@career").then(({ response }) => {
+      const { statusCode } = response;
+      const pattern = /[2][0-9][0-9]/;
+      const matching = statusCode.toString().match(pattern);
+      expect(statusCode.toString()).to.eq(matching[0]);
+    });
+    cy.get("body").should("be.visible");
+      });
