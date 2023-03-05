@@ -4,10 +4,7 @@ import * as constants from "../../support/constants";
 
 import {
   Then,
-  And,
-  When,
-  Given,
-  But,
+  And
 } from "cypress-cucumber-preprocessor/steps";
 const loginPageObject = new UserLoginPage();
 
