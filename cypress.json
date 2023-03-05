@@ -9,16 +9,7 @@
   "viewportHeight": 800,
   "testFiles": "**/*.{feature,features}",
   "ignoreTestFiles": "*.js",
-  "reporter": "mochawesome",
-  "reporterOptions": {
-    "charts": true,
-    "json": true,
-    "html": true,
-    "reportFilename": "testReport",
-    "overwrite": true
-  },
   "videoCompression": false,
-  "videosFolder": "cypress/videos",
   "video": true,
   "videoUploadOnPasses": false,
   "screenshotOnRunFailure": true,
