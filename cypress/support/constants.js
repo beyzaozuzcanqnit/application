@@ -5,6 +5,7 @@ export const texts = {
   aboutpageText: "About Magnolia Travels",
   contactpageText: "Contact",
   memberspageText: "Members",
+  bookingErrorMessage: "Internal error, form could not be sent",
 };
 
 export const userCredentials = {
@@ -66,4 +67,29 @@ export const EnglishLanguageContent = {
   contact: "Contact",
   members: "Members",
   homepageText: "Dolomites on Bike",
+};
+
+export const activeDropdownHutToHutContent = {
+  cityKey: "start city",
+  cityValue: "Zurich, Switzerland",
+  durationKey: "duration",
+  durationValue: "7 days",
+  operatorKey: "tour operator",
+  operatorValue: "Magnolia Travels",
+  ageOfAdults: 20,
+  adults: 12,
+  airportPickUp: true,
+  carbonOffset: false,
+  supportLocalCommunity: true,
+  mealRequirement: "No",
+  mealsNotes: "Please make sure that meals are properly cooked",
+  firstName: "sai",
+  lastName: "krishna",
+  email: "saikrishna@gmail.com",
+  phone: +491511515151,
+  city: "wuppertal",
+  postal: 503203,
+  country: "Germany",
+  province: "NRW",
+  internalError: "Internal error, form could not be sent",
 };
